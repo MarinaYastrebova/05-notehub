@@ -1,35 +1,25 @@
 import { useState } from "react";
-import reactLogo from "../../assets/react.svg";
-import viteLogo from "../../../public/vite.svg";
-import "./App.module.css";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { type useDebounce } from "use-debounce";
+import { fetchNotes, createNote, deleteNote } from "../../services/noteService";
+import { type CreateNoteData } from "../../services/noteService";
+import NoteList from "../NoteList/NoteList";
+import SearchBox from "../SearchBox/SearchBox";
+import Pagination from "../Pagination/Pagination";
+import Modal from "../Modal/Modal";
+import NoteForm from "../NoteForm/NoteForm";
+import css from "./App.module.css";
 
-function App() {
-  const [count, setCount] = useState(0);
-
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className={css.app}>
+      <header className={css.toolbar}>
+        {/* <SearchBox />
+        <Pagination /> */}
+        <button></button>
+      </header>
+    </div>
   );
-}
+};
 
 export default App;
