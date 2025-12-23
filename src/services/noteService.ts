@@ -5,13 +5,8 @@ const BASE_URL = "https://notehub-public.goit.study/api";
 const token = import.meta.env.VITE_NOTEHUB_TOKEN;
 
 export interface FetchNotesResponse {
-  data: Note[];
-  meta: {
-    total: number;
-    page: number;
-    perPage: number;
-    totalPage: number;
-  };
+  notes: Note[];
+  totalPages: number;
 }
 
 export interface FetchNotesParams {
@@ -27,10 +22,10 @@ export interface CreateNoteData {
 }
 
 export interface CreateNoteResponse {
-  data: Note;
+  note: Note;
 }
 export interface DeleteNoteResponse {
-  data: Note;
+  note: Note;
 }
 
 export const fetchNotes = async (
