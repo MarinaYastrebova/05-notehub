@@ -73,7 +73,7 @@ const App = () => {
   return (
     <div className={css.app}>
       <header className={css.toolbar}>
-        <SearchBox onChange={handleSearchChange} />
+        <SearchBox value={searchTerm} onChange={handleSearchChange} />
         {totalPages > 1 && (
           <Pagination
             pageCount={totalPages}
